@@ -1,0 +1,89 @@
+.btn {
+    position        : relative;
+    display         : inline-block;
+    font-weight     : $btn-font-weight;
+    line-height     : $btn-line-height;
+    color           : $body-color;
+    white-space     : nowrap;
+    text-align      : center;
+    vertical-align  : middle;
+    background-image: none;
+    border          : $btn-border-width solid transparent;
+    box-shadow      : $btn-box-shadow;
+    cursor          : pointer;
+    transition      : $btn-transition;
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+
+    &.disabled,
+    &[disabled] {
+        cursor    : not-allowed;
+        opacity   : $btn-disabled-opacity;
+        box-shadow: none;
+
+        >* {
+            pointer-events: none;
+        }
+    }
+}
+
+.btn-lg {
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $border-radius-lg);
+}
+
+.btn-sm {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $border-radius-sm);
+}
+
+.btn-primary {
+    @include button-type($primary, $primary, $white)
+}
+
+.btn-success {
+    @include button-type($success, $success, $white)
+}
+
+.btn-info {
+    @include button-type($info, $info, $white)
+}
+
+.btn-warning {
+    @include button-type($warning, $warning, $white)
+}
+
+.btn-danger {
+    @include button-type($danger, $danger, $white)
+}
+
+.btn-default {
+    @include button-type($white, $gray-400, $body-color, $white, $primary, $primary)
+}
+
+.btn-light {
+    @include button-type($light, $light, $black)
+}
+
+.btn-dark {
+    @include button-type($dark, $dark, $white)
+}
+
+
+.btn-link {
+    font-weight: $font-weight-normal;
+    color: $btn-link-color;
+    text-decoration: $link-decoration;
+    box-shadow: none;
+    &:hover {
+        color: $btn-link-hover-color;
+        text-decoration: $link-hover-decoration;
+    }
+    &:focus,
+    &.focus {
+        box-shadow: none;
+        text-decoration: $link-hover-decoration;
+    }
+    &:disabled,
+    &.disabled {
+        color: $btn-link-disabled-color;
+        pointer-events: none;
+    }
+}
